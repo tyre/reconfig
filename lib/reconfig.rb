@@ -1,0 +1,5 @@
+require 'set'
+require 'reconfig/type_mapper'
+require 'reconfig/redis_client'
+require 'reconfig/namespace'
+require 'reconfig/config'
