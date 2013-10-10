@@ -21,28 +21,30 @@ module Reconfig
       end
     end
 
+    # Redis stores SCORES as floats, so types must be floats
+
     def string
-      '1.0'
+      1.0
     end
 
     def integer
-      '2.0'
+      2.0
     end
 
     def float
-      '3.0'
+      3.0
     end
 
     def hash
-      '4.0'
+      4.0
     end
 
     def list
-      '5.0'
+      5.0
     end
 
     def set
-      '6.0'
+      6.0
     end
 
   end

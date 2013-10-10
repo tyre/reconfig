@@ -46,8 +46,8 @@ module Reconfig
 
     private
 
-    def connection
-      @connection ||= RedisClient.new
+    def redis_client
+      @redis_client ||= RedisClient.new
     end
 
     def type_mapper
@@ -60,7 +60,7 @@ module Reconfig
 
     def register_namespace(namespace_name)
       namespace_key = namespace_key(namespace_name)
-      connection.sadd(meta_key, namespace_key)
+      redis_client.sadd(meta_key, namespace_key)
       namespaces[namespace_name.to_sym] = Namespace.new(namespace_key)
     end
 
