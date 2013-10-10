@@ -31,7 +31,7 @@ describe Reconfig::Namespace do
     it 'stores a value\'s key and type in the meta key' do
       subject[:gin] = 'St. George'
       key_type = fake_redis.zrange('Meta:World:Peace', 0, -1, with_scores: true).first
-      key_type.first.should eq 'Meta:World:Peace:gin'
+      key_type.first.should eq 'gin'
       key_type.last.should eq type_mapper.string
     end
 

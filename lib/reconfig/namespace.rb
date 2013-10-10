@@ -25,6 +25,7 @@ module Reconfig
 
     def []=(key, value)
       set(key, value)
+      config[key] = value
     end
 
     private
@@ -48,7 +49,7 @@ module Reconfig
     def set(key, value)
       stored_type = type_mapper.stored_type(value)
       redis_client.set_by_type(namespaced_key(key), value)
-      redis_client.zadd(meta_key, stored_type, namespaced_key(key))
+      redis_client.zadd(meta_key, stored_type, key)
     end
 
     def namespaced_key(key)
